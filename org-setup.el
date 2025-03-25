@@ -7,6 +7,7 @@
 
 (add-hook 'org-mode-hook
 	  (lambda ()
+	    (flyspell-mode 0)
 	    (org-indent-mode 1)
 	    (abbrev-mode 1)
 	    (setq captain-predicate
