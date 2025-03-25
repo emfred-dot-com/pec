@@ -19,9 +19,3 @@
   ;; followed by the file's title.  Read the doc string of
   ;; `denote-rename-buffer-format' for how to modify this.
   (denote-rename-buffer-mode 1))
-
-(use-package consult-notes
-  :bind ("C-z n SPC" . consult-notes)
-  :init
-  (setq consult-notes-sources
-        `(("Notes"  ?n ,denote-directory))))

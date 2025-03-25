@@ -2,61 +2,89 @@
 ;;; keys-setup.el -- Keybindings
 ;;;
 
+(defmacro keybind (key func)
+  "Bind @key, given as a string (e.g. 'C-x s') to the function @func (given
+  unquoted)"
+  `(global-set-key (kbd ,key) (quote ,func)))
+
+(defmacro keybinds (&rest keys-functions)
+  "Apply the `keybind' macro pairwise through the argument list"
+  (let ((key (car keys-functions))
+	(func (cadr keys-functions))
+	(rest (cddr keys-functions)))
+    (when func
+	`(progn
+	   (keybind ,key ,func)
+	   (keybinds ,@rest)))))
+
 ;; Swap meta and super on Linux
-;; (ifmac nil
-;;        (setq x-meta-keysym 'super
-;; 	     x-super-keysym 'meta))
+(when-linux (setq x-meta-keysym 'super
+		  x-super-keysym 'meta))
 
 ;; Tweaks to default bindings
-(global-set-key (kbd "C-x C-b") 'ibuffer-other-window) ; better buffer menu
-(global-set-key (kbd "C-x C-d") 'dired) ; Don't accidentally call list-directory
-(global-set-key (kbd "M-y") 'consult-yank-from-kill-ring) ; better yank-from-kill-ring
 
-(global-set-key (kbd "C-x c") 'restart-emacs) ; easy restart
+(keybinds
+ ; Better buffer menu
+ "C-x C-b" ibuffer-other-window
 
-(global-set-key (kbd "C-<tab>") 'other-window) ; easy window switch
-(global-set-key (kbd "C-S-<tab>") 'tab-next) ; (remap tab switch)
+ ; Overwrite useless `list-directory' binding to call `dired' instead
+ "C-x C-d" dired
 
+ ; Better yank-from-kill-ring
+ "M-y" consult-yank-from-kill-ring
+
+ ; Easy restart
+ "C-x c" restart-emacs
+
+ ; Easy window switch
+ "C-<tab>" other-window
+
+ ; (Remap tab switch)
+ "C-S-<tab>" tab-next)
 
 ;; Custom bindings
-; (global-unset-key (kbd "C-z")) <-- This line is now in `./init.el'
-(global-set-key (kbd "C-z ,") 'vterm-other-window)
-(global-set-key (kbd "C-z .") 'eshell-other-window)
-(global-set-key (kbd "C-z 1") 'consult-todo)
-(global-set-key (kbd "C-z 6") 'file-info-show)
-(global-set-key (kbd "C-z =") 'edit-config)
-(global-set-key (kbd "C-z C-a") 'incr-num-at-point)
-(global-set-key (kbd "C-z C-x") 'decr-num-at-point)
-(global-set-key (kbd "C-z SPC") 'consult-recent-file)
-(global-set-key (kbd "C-z S-SPC") 'consult-recent-file-other-window)
-(global-set-key (kbd "C-z [") 'find-file-at-point)
-(global-set-key (kbd "C-z b") 'consult-buffer)
-(global-set-key (kbd "C-z c") 'copy-line)
-(global-set-key (kbd "C-z d") 'gd)
-(global-set-key (kbd "C-z f") 'toggle-frame-fullscreen)
-(global-set-key (kbd "C-z g") 'consult-ripgrep)
-(global-set-key (kbd "C-z h") 'hl-line-mode)
-(global-set-key (kbd "C-z i") 'sp-change-inner)
-(global-set-key (kbd "C-z l") 'display-line-numbers-mode)
-(global-set-key (kbd "C-z o") 'sp-change-enclosing)
-(global-set-key (kbd "C-z p") 'package-list-packages)
-(global-set-key (kbd "C-z q") 'logos-focus-mode)
-(global-set-key (kbd "C-z s") 'consult-line)
-(global-set-key (kbd "C-z t") 'ef-themes-select)
-(global-set-key (kbd "C-z C-t") 'ef-themes-toggle)
-(global-set-key (kbd "C-z T") 'modus-themes-select)
-(global-set-key (kbd "C-z u d") 'update-directory-index)
-(global-set-key (kbd "C-z u g") 'update-git-repos)
-(global-set-key (kbd "C-z w") 'whitespace-mode)
-(global-set-key (kbd "C-z {") 'beginning-of-defun)
-(global-set-key (kbd "C-z }") 'end-of-defun)
-(global-set-key (kbd "C-z #") 'goto-line-num-at-point-in-recent-file)
-(global-set-key (kbd "M-n") 'scroll-up-one)
-(global-set-key (kbd "M-p") 'scroll-down-one)
-(global-set-key (kbd "M-Q") 'xah-unfill-paragraph)
-(global-set-key (kbd "C-z ; w b") 'pw-build)
-(global-set-key (kbd "C-z ; w s") 'pw-serve)
-(global-set-key (kbd "C-z ; w S") 'pw-serve-disable-fast-render)
-(global-set-key (kbd "C-z ; w u") 'pw-git-pull)
-(global-set-key (kbd "C-z ; w p") 'pw-git-push)
 
+(keybinds
+ "C-z ," vterm-other-window
+ "C-z ." eshell-other-window
+ "C-z 1" consult-todo
+ "C-z 6" file-info-show
+ "C-z =" edit-config
+ "C-z C-a" incr-num-at-point
+ "C-z C-x" decr-num-at-point
+ "C-z SPC" consult-recent-file
+ "C-z S-SPC" consult-recent-file-other-window
+ "C-z )" ace-swap-window
+ "C-z [" find-file-at-point
+ "C-z b" consult-buffer
+ "C-z c" copy-line
+ "C-z d" gd
+ "C-z f" toggle-frame-fullscreen
+ "C-z g" consult-ripgrep
+ "C-z h" hl-line-mode
+ "C-z i" sp-change-inner
+ "C-z k" kill-paragraph
+ "C-z K" backward-kill-paragraph
+ "C-z l" display-line-numbers-mode
+ "C-z o" sp-change-enclosing
+ "C-z p" package-list-packages
+ "C-z q" logos-focus-mode
+ "C-z s" consult-line
+ "C-z t" ef-themes-select
+ "C-z C-t" ef-themes-toggle
+ "C-z T" modus-themes-select
+ "C-z u d" update-directory-index
+ "C-z u g" update-git-repos
+ "C-z w" whitespace-mode
+ "C-z {" beginning-of-defun
+ "C-z }" end-of-defun
+ "C-z #" goto-line-num-at-point-in-recent-file
+ "M-n" scroll-up-one
+ "M-p" scroll-down-one
+ "M-Q" xah-unfill-paragraph
+ "C-z ; w b" pw-build
+ "C-z ; w s" pw-serve
+ "C-z ; w S" pw-serve-disable-fast-render
+ "C-z ; w u" pw-git-pull
+ "C-z ; w p" pw-git-push
+ "C-z /" compile)

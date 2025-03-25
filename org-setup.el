@@ -5,9 +5,11 @@
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode))
 
-(add-hook 'org-mode-hook (lambda ()
-			   (org-indent-mode 1)
-			   (abbrev-mode 1)
-			   (setq captain-predicate
-				 (lambda () (not (org-in-src-block-p))))
-			   (local-set-key (kbd "C-c h") 'consult-org-heading)))
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (org-indent-mode 1)
+	    (abbrev-mode 1)
+	    (setq captain-predicate
+		  (lambda () (not (org-in-src-block-p)))
+		  org-image-max-width 50)
+	    (local-set-key (kbd "C-c h") 'consult-org-heading)))

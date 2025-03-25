@@ -7,13 +7,16 @@
   "Variable used to guard settings that only work on Linux or MacOs"
   :type 'string)
 
-;; Uncomment on MacOs!
-;; (setq myOs "macOs")
+;; Uncomment on mac
+(setq myOs "mac")
 
-(defmacro ifmac (then &optional else)
-  `(if (string-equal myOs "macOs")
-       ,then
-     ,else))
+(defmacro when-mac (then)
+  `(when (string-equal myOs "mac")
+     ,then))
+
+(defmacro when-linux (then)
+  `(when (string-equal myOs "linux")
+     ,then))
 
 (defun load-these (files)
   (mapcar
@@ -21,11 +24,14 @@
      (load-file (locate-user-emacs-file file)))
    files))
 
+;; Free up the leader so that files loaded below can define keybinds
+;; off of it
 (global-unset-key (kbd "C-z"))
 
 (load-these '("package-setup-optm.el"
-	      ;; (load this first so that the remaining *-setup files
-	      ;; can declare their dependencies with use-package)
+	      ;; ^ (load this first so that the remaining *-setup
+	      ;; files can declare their dependencies with
+	      ;; `use-package')
 
 	      ;; * Custom functions
 	      "functions-setup.el"
@@ -37,6 +43,7 @@
 	      ;; * Builtins
 	      "builtin-modes-setup.el"
 	      "builtin-options-setup.el"
+	      "path-setup.el"
 	      "tabs-setup.el"
 	      "dired-setup.el"
 
@@ -50,15 +57,17 @@
 	      "mail-setup.el"
 
 	      ;; * Languages
-	      ;; * * Plaintext, natural, and markup
+	      ;; * * natural
 	      "plaintext-setup.el"
+	      "notes-setup.el"
 	      "poem-setup.el"
+
+	      ;; * * markup
 	      "markdown-setup.el"
 	      "org-setup.el"
-	      "notes-setup.el"
 	      "lilypond-setup.el"
 
-	      ;; * * Programming
+	      ;; * * programming
 	      "programming-setup.el"
 	      "c-family-setup.el"
 	      "d-setup.el"

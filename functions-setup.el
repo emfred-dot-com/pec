@@ -33,37 +33,30 @@
     :state (consult--file-preview)
     :history 'file-name-history)))
 
-(ifmac (defun gd (&optional arg)
-	 "Goto Directory"
-	 (interactive "P")
-	 (let ((target-dir (completing-read
-			    "Directory: "
-			    (with-temp-buffer
-			      (insert-file-contents "~/.gd_idx")
-			      (split-string (buffer-string) "\n" t)))))
-	   (if arg
-	       (dired-other-window target-dir)
-	     (dired (concat "~/" target-dir)))))
-;; ELSE
-       (defun gd (&optional arg)
-	 "Goto Directory"
-	 (interactive "P")
-	 (let ((target-dir (completing-read
-			    "Directory: "
-			    (with-temp-buffer
-			      (insert-file-contents "/home/eric/.gd_idx")
-			      (split-string (buffer-string) "\n" t)))))
-	   (if arg
-	       (dired-other-window target-dir)
-	     (dired target-dir)))))
-
-(defun update-directory-index ()
-  (interactive)
-  (async-shell-command "~/scripts/s3/gd -u" "gd -u"))
-
-(defun update-git-repos ()
-  (interactive)
-  (async-shell-command "~/scripts/pullall" "pullall"))
+(when-mac
+ (defun gd (&optional arg)
+   "Goto Directory"
+   (interactive "P")
+   (let ((target-dir (completing-read
+		      "Directory: "
+		      (with-temp-buffer
+			(insert-file-contents "~/.gd_idx")
+			(split-string (buffer-string) "\n" t)))))
+     (if arg
+	 (dired-other-window target-dir)
+       (dired (concat "~/" target-dir))))))
+(when-linux
+ (defun gd (&optional arg)
+   "Goto Directory"
+   (interactive "P")
+   (let ((target-dir (completing-read
+		      "Directory: "
+		      (with-temp-buffer
+			(insert-file-contents "/home/eric/.gd_idx")
+			(split-string (buffer-string) "\n" t)))))
+     (if arg
+	 (dired-other-window target-dir)
+       (dired target-dir)))))
 
 (defun change-num-at-point (change-func)
   "Replace the number under the point with (change-func number)"
@@ -155,7 +148,7 @@ number of `number-at-point' upon file selection"
   (let* ((common-sizes
 	  (mapcar #'number-to-string '(8 10 12 14 16 18 20)))
 	 (size-in-pts
-	 (completing-read "Enter the new font size in pts: " common-sizes)))
+	  (completing-read "Enter the new font size in pts: " common-sizes)))
     (set-font-height-in-pts (string-to-number size-in-pts))))
 
 (defun xah-unfill-paragraph ()
@@ -177,21 +170,36 @@ Version 2016-07-13"
 			  (or ,output-buffer-name ,cmd-string))))
 
 (defun-login-shell-command
- pw-git-pull "cd ~/web/personal-website && git pull --ff-only")
+ update-directory-index
+ "~/scripts/s3/gd -u"
+ "gd -u")
 
 (defun-login-shell-command
- pw-git-push "cd ~/web/personal-website && git push origin main")
+ update-git-repos
+ "~/scripts/pullall"
+ "pullall")
 
 (defun-login-shell-command
- pw-build "cd ~/web/personal-website && hugo")
+ pw-git-pull
+ "cd ~/web/personal-website && git pull --ff-only")
 
 (defun-login-shell-command
- pw-serve "cd ~/web/personal-website && hugo serve"
+ pw-git-push
+ "cd ~/web/personal-website && git push origin main")
+
+(defun-login-shell-command
+ pw-build
+ "cd ~/web/personal-website && hugo")
+
+(defun-login-shell-command
+ pw-serve
+ "cd ~/web/personal-website && hugo serve"
  "hugo serve")
 
 (defun-login-shell-command
  pw-serve-disable-fast-render
- "rm -rf ~/web/personal-website/public; cd ~/web/personal-website && hugo serve --disableFastRender"
+ "rm -rf ~/web/personal-website/public;
+  cd ~/web/personal-website && hugo serve --disableFastRender"
  "hugo serve (disable fast render)")
 
 (defun calc-hmsify (h-m-s-list)

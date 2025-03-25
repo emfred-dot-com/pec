@@ -8,6 +8,7 @@
 
 (add-hook 'dired-mode-hook
 	  (lambda ()
-	    (keymap-set dired-mode-map (kbd ";") 'dired-sysopen-file-at-point)))
+	    (keymap-set dired-mode-map (kbd ";")
+			'dired-sysopen-file-at-point)))
 
 (setq dired-listing-switches "-alh")
