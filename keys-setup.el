@@ -17,10 +17,6 @@
 	   (keybind ,key ,func)
 	   (keybinds ,@rest)))))
 
-;; Swap meta and super on Linux
-(when-linux (setq x-meta-keysym 'super
-		  x-super-keysym 'meta))
-
 ;; Tweaks to default bindings
 
 (keybinds
