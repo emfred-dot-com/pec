@@ -27,7 +27,7 @@
 	   '(notmuch-refresh-this-buffer)
 	   notmuch-indicator-hide-empty-counters nil)
      :config
-     (notmuch-indicator-mode 1))
+     (notmuch-indicator-mode 0))
 
    ;; for sending mail
    (setq send-mail-function 'sendmail-send-it
