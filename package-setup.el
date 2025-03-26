@@ -1,5 +1,5 @@
 ;;;  -*- lexical-binding: t; -*-
-;;; package-setup-optm.el -- Package management with optimized loading
+;;; package-setup.el -- Package management
 ;;;
 
 (require 'package)
