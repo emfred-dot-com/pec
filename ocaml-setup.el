@@ -6,6 +6,10 @@
   :defer t)
 
 (add-to-list 'load-path "/Users/ericfrederickson/.opam/default/share/emacs/site-lisp")
+
+(use-package ocp-indent
+  :ensure t)
+
 (require 'ocp-indent)
 
 (let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
