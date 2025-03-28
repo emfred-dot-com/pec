@@ -76,7 +76,10 @@
 	      "lisp-setup.el"
 	      "lsp-setup.el"
 	      "python-setup.el"
-	      "ocaml-setup.el"))
+	      "ocaml-setup.el"
+
+	      ;; * Documents
+	      "pdf-setup.el"))
 
 ;; M-x customize
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
