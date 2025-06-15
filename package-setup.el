@@ -14,7 +14,12 @@
 
 (setq use-package-always-ensure t)
 
+(unless (package-installed-p 'vc-use-package)
+  (package-vc-install "https://github.com/slotThe/vc-use-package"))
+(require 'vc-use-package)
+
 (use-package accent
+  :vc (:fetcher github :repo eliascotto/accent)
   :bind ("C-x M-a" . accent-menu))
 
 (use-package ace-window
