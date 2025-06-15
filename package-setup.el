@@ -43,6 +43,8 @@
   :config
   (beginend-global-mode 1))
 
+(use-package bufferfile)
+
 (use-package consult
   :demand t
   :config
