@@ -15,7 +15,7 @@
  global-auto-revert-non-file-buffers t
  grep-use-headings t
  inhibit-startup-screen t
- initial-buffer-choice "~/.todo/todo.org"
+ initial-buffer-choice t
  initial-scratch-message ";; Scratch\n\n"
  kept-new-versions 6
  kept-old-versions 2
