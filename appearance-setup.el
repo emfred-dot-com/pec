@@ -14,6 +14,11 @@
 
 (require-theme 'ef-themes)
 
+(use-package doric-themes
+  :ensure t)
+
+(require-theme 'doric-themes)
+
 (when-mac (load-theme 'ef-dream t))
 (when-linux (load-theme 'ef-winter t))
 
