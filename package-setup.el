@@ -107,6 +107,13 @@
 (use-package markdown-mode
   :defer t)
 
+(use-package multiple-cursors
+  :bind (("C-<" . mc/mmlte--up)
+	 ("C->" . mc/mmlte--down)
+	 ("C-M->" . mc/mark-next-like-this)
+	 ("C-M-<" . mc/mark-previous-like-this)
+	 ("C-c C->" . mc/mark-all-dwim)))
+
 (use-package pdf-tools
   :hook (doc-view-mode . pdf-tools-install))
 
