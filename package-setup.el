@@ -161,6 +161,13 @@
   :config
   (vertico-mode 1))
 
+(use-package vertico-directory
+  :after vertico
+  :ensure nil
+  :bind (:map vertico-map
+              ("M-DEL" . vertico-directory-delete-word))
+  :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+
 (use-package vterm
   :demand t
   :load-path "~/repos/emacs-libvterm/"
