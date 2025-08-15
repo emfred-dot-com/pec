@@ -20,6 +20,7 @@
  kept-new-versions 6
  kept-old-versions 2
  recentf-max-saved-items 500
+ ring-bell-function 'ignore
  set-mark-command-repeat-pop t
  tab-bar-show 1
  undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
