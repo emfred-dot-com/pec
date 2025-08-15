@@ -83,4 +83,5 @@
  "C-z ; w S" pw-serve-disable-fast-render
  "C-z ; w u" pw-git-pull
  "C-z ; w p" pw-git-push
- "C-z /" compile)
+ "C-z /" compile
+ "C-z '" eldoc)

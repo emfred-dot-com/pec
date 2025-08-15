@@ -1,9 +1,9 @@
 ;;;  -*- lexical-binding: t; -*-
-;;; haskell-setup.el -- configurations for Haskell mode
+;;; haskell-setup.el -- configurations for editing Haskell files
 ;;;
 
-;; (add-hook 'haskell-mode-hook
-;; 	  (lambda ()
-;; 	    (keymap-local-set
-;; 	     (kbd "C-z /")
-;; 	     (switch-to-buffer-other-window "*haskell*"))))
+(use-package haskell-mode
+  :defer t
+  :config
+  (setq haskell-process-type 'ghci
+	haskell-process-show-debug-tips nil))

@@ -68,15 +68,16 @@
 	      "lilypond-setup.el"
 
 	      ;; * * programming
-	      "programming-setup.el"
 	      "c-family-setup.el"
 	      "d-setup.el"
+	      "haskell-setup.el"
 	      "html-setup.el"
 	      "js-setup.el"
 	      "lisp-setup.el"
 	      "lsp-setup.el"
-	      "python-setup.el"
 	      "ocaml-setup.el"
+	      "programming-setup.el"
+	      "python-setup.el"
 
 	      ;; * Documents
 	      "pdf-setup.el"))

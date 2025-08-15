@@ -95,9 +95,6 @@
 
 (use-package git-gutter-fringe)
 
-(use-package haskell-mode
-  :defer t)
-
 (use-package ido-yes-or-no
   :config
   (ido-yes-or-no-mode 1))
