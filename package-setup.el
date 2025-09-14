@@ -167,10 +167,13 @@
 
 (use-package vterm
   :demand t
-  :load-path "~/repos/emacs-libvterm/"
+  :vc (:fetcher github :repo akermu/emacs-libvterm)
   :config
   (setq vterm-timer-delay nil)
   (setq vterm-max-scrollback 10000))
+
+(use-package multi-vterm
+  :vc (:fetcher github :repo suonlight/multi-vterm))
 
 (use-package which-key
   :config
