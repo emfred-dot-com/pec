@@ -14,8 +14,7 @@
 
 (require-theme 'ef-themes)
 
-(use-package doric-themes
-  :ensure t)
+(use-package doric-themes)
 
 (require-theme 'doric-themes)
 
