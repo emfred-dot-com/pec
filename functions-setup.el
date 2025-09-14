@@ -17,6 +17,15 @@
     (eshell/clear-scrollback)
     (eshell-send-input)))
 
+(defun multi-vterm-other-window ()
+  "Create new vterm buffer."
+  (interactive)
+  (let* ((vterm-buffer (multi-vterm-get-buffer)))
+    (setq multi-vterm-buffer-list (nconc multi-vterm-buffer-list (list vterm-buffer)))
+    (set-buffer vterm-buffer)
+    (multi-vterm-internal)
+    (switch-to-buffer-other-window vterm-buffer)))
+
 (defun consult-recent-file-other-window ()
   "Find recent file using `completing-read'."
   (interactive)

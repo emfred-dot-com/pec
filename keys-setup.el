@@ -42,6 +42,7 @@
 
 (keybinds
  "C-z ," vterm-other-window
+ "C-z C-," multi-vterm-other-window
  "C-z ." eshell-other-window
  "C-z 1" consult-todo
  "C-z 6" file-info-show
