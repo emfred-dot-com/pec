@@ -65,17 +65,17 @@
 	      ;; * * markup
 	      "markdown-setup.el"
 	      "org-setup.el"
-	      "lilypond-setup.el"
+	      ;"lilypond-setup.el"
 
 	      ;; * * programming
 	      "c-family-setup.el"
-	      "d-setup.el"
-	      "haskell-setup.el"
+	      ; "d-setup.el"
+	      ; "haskell-setup.el"
 	      "html-setup.el"
-	      "js-setup.el"
-	      "lisp-setup.el"
+	      ; "js-setup.el"
+	      ; "lisp-setup.el"
 	      "lsp-setup.el"
-	      "ocaml-setup.el"
+	      ; "ocaml-setup.el"
 	      "programming-setup.el"
 	      "python-setup.el"
 
