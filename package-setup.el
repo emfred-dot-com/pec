@@ -68,8 +68,8 @@
   :defer t
   :commands dynamic-spaces-mode)
 
-;; (use-package eat
-;;   :hook (eshell-mode . eat-eshell-mode))
+(use-package eat
+  :hook (eshell-mode . eat-eshell-mode))
 
 (use-package embark
   :bind (("C-." . embark-act)))
@@ -101,6 +101,8 @@
 
 (use-package magit
   :defer t
+  :init
+  (setq native-comp-enable-subr-trampolines nil)
   :config
   (keymap-set magit-section-mode-map "C-<tab>" #'other-window))
 
