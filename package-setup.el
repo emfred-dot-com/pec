@@ -167,16 +167,6 @@
               ("M-DEL" . vertico-directory-delete-word))
   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 
-(use-package vterm
-  :demand t
-  :vc (:fetcher github :repo akermu/emacs-libvterm)
-  :config
-  (setq vterm-timer-delay nil)
-  (setq vterm-max-scrollback 10000))
-
-(use-package multi-vterm
-  :vc (:fetcher github :repo suonlight/multi-vterm))
-
 (use-package which-key
   :config
   (which-key-mode 1))

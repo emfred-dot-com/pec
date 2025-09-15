@@ -56,6 +56,9 @@
 	      ;; * Email
 	      "mail-setup.el"
 
+	      ;; * Terminal
+	      "terminal-setup.el"
+
 	      ;; * Languages
 	      ;; * * natural
 	      "plaintext-setup.el"
