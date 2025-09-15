@@ -59,6 +59,9 @@
 	      ;; * Terminal
 	      "terminal-setup.el"
 
+	      ;; * Tramp
+	      "tramp-setup.el"
+
 	      ;; * Languages
 	      ;; * * natural
 	      "plaintext-setup.el"
