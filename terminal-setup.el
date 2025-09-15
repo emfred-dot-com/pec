@@ -81,7 +81,8 @@ If a prefix argument is passed, then the jump will happen in the current
 	 (buf-name (completing-read "Select vterm instance: " vterm-buffer-names)))
     (if arg
 	(switch-to-buffer buf-name)
-      (pop-to-buffer buf-name))))
+      (pop-to-buffer buf-name
+		     #'display-buffer-use-least-recent-window))))
 
 (keybinds
  "C-z ," vterm-create
