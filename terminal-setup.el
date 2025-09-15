@@ -24,8 +24,10 @@ home directory path with a `~/'."
 (defmacro maybe-in-project (body)
   "If we're in a project, set the current working directory to the root
 directory of that project."
-  `(let ((proj (project-root (project-current nil))))
-     (let ((default-directory (if proj proj default-directory)))
+  `(let ((proj (project-current nil)))
+     (let ((default-directory (if proj
+				  (project-root proj)
+				default-directory)))
        ,body)))
 
 (defun cwd ()
