@@ -36,6 +36,9 @@
 	      ;; * Custom functions
 	      "functions-setup.el"
 
+	      ;; * Keybinds
+	      "keys-setup.el"
+
 	      ;; * Appearance
 	      "appearance-setup.el"
 	      "mode-line-setup.el"
@@ -46,9 +49,6 @@
 	      "path-setup.el"
 	      "tabs-setup.el"
 	      "dired-setup.el"
-
-	      ;; * Keybinds
-	      "keys-setup.el"
 
 	      ;; * Completion
 	      "completion-setup.el"
