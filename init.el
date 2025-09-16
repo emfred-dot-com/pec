@@ -71,7 +71,7 @@
 	      ;; * * markup
 	      "markdown-setup.el"
 	      "org-setup.el"
-	      ;"lilypond-setup.el"
+	      "lilypond-setup.el"
 
 	      ;; * * programming
 	      "programming-setup.el"
