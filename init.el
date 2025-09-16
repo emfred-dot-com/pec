@@ -7,8 +7,8 @@
   "Variable used to guard settings that only work on Linux or MacOs"
   :type 'string)
 
-;; Uncomment on mac
-(setq myOs "mac")
+(if (eq system-type 'darwin)
+    (setq myOs "mac"))
 
 (defmacro when-mac (then)
   `(when (string-equal myOs "mac")
