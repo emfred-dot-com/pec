@@ -88,6 +88,9 @@
 	      ;; * Documents
 	      "pdf-setup.el"
 
+	      ;; * Diffs
+	      "diff-setup.el"
+
 	      ;; * Version control
 	      "magit-setup.el"))
 
