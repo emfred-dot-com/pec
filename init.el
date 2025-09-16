@@ -86,7 +86,10 @@
 	      "python-setup.el"
 
 	      ;; * Documents
-	      "pdf-setup.el"))
+	      "pdf-setup.el"
+
+	      ;; * Version control
+	      "magit-setup.el"))
 
 ;; M-x customize
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))

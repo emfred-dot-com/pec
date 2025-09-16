@@ -99,13 +99,6 @@
   :config
   (ido-yes-or-no-mode 1))
 
-(use-package magit
-  :defer t
-  :init
-  (setq native-comp-enable-subr-trampolines nil)
-  :config
-  (keymap-set magit-section-mode-map "C-<tab>" #'other-window))
-
 (use-package marginalia
   :config
   (marginalia-mode 1))
