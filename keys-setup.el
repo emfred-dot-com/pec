@@ -79,6 +79,8 @@
  "M-n" scroll-up-one
  "M-p" scroll-down-one
  "M-Q" xah-unfill-paragraph
+ "M-[" backward-sexp
+ "M-]" forward-sexp
  "C-z ; w b" pw-build
  "C-z ; w s" pw-serve
  "C-z ; w S" pw-serve-disable-fast-render
