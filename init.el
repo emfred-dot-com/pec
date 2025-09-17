@@ -59,6 +59,9 @@
 	      ;; * Terminal
 	      "terminal-setup.el"
 
+	      ;; * Shell
+	      "shell-setup.el"
+
 	      ;; * Tramp
 	      "tramp-setup.el"
 

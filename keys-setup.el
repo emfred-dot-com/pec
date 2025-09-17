@@ -3,7 +3,7 @@
 ;;;
 
 (defmacro keybind (key func)
-  "Bind @key, given as a string (e.g. 'C-x s') to the function @func (given
+  "Bind @key, given as a string (e.g. \"C-x s\") to the function @func (given
   unquoted)"
   `(global-set-key (kbd ,key) (quote ,func)))
 
@@ -41,9 +41,6 @@
 ;; Custom bindings
 
 (keybinds
- "C-z ," vterm-other-window
- "C-z C-," multi-vterm-other-window
- "C-z ." eshell-other-window
  "C-z 1" consult-todo
  "C-z 6" file-info-show
  "C-z =" edit-config
@@ -69,9 +66,6 @@
  "C-z s" consult-line
  "C-z t" ef-themes-select
  "C-z C-t" ef-themes-toggle
- "C-z T" modus-themes-select
- "C-z u d" update-directory-index
- "C-z u g" update-git-repos
  "C-z w" whitespace-mode
  "C-z {" beginning-of-defun
  "C-z }" end-of-defun
@@ -81,10 +75,5 @@
  "M-Q" xah-unfill-paragraph
  "M-[" backward-sexp
  "M-]" forward-sexp
- "C-z ; w b" pw-build
- "C-z ; w s" pw-serve
- "C-z ; w S" pw-serve-disable-fast-render
- "C-z ; w u" pw-git-pull
- "C-z ; w p" pw-git-push
  "C-z /" compile
  "C-z '" eldoc)
