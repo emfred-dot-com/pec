@@ -14,17 +14,20 @@
       gnus-summary-line-format "%U%R%z%I%(%[ %-4,30f (%L) %]%) %s\n"
       gnus-sum-thread-tree-indent "    "
       gnus-sum-opening-bracket-adopted "{"
-      gnus-sum-closing-bracket-adopted "}")
+      gnus-sum-closing-bracket-adopted "}"
+      gnus-widen-article-window t)
      :bind (("C-z m" . gnus)))
 
    (use-package smtpmail
-     :defer t
      :config
-     (setq
-      smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 587
-      smtpmail-stream-type 'starttls
-      smtpmail-auth-credentials "~/.authinfo"))))
+     (setq smtpmail-smtp-server "smtp.gmail.com"
+	   smtpmail-stream-type 'starttls
+	   smtpmail-auth-credentials "~/.authinfo"
+	   message-send-mail-function #'smtpmail-send-it)
+
+     (add-hook 'message-mode-hook
+	       (lambda ()
+		 (setq smtpmail-smtp-service 587))))))
 
 (when-linux
  (progn
