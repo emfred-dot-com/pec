@@ -1,5 +1,5 @@
 ;;;  -*- lexical-binding: t; -*-
-;;; package-setup.el -- Email config using notmuch.el
+;;; mail-setup.el -- Setup for reading and sending mail
 ;;;
 
 (when-linux
