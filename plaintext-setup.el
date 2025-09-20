@@ -13,7 +13,7 @@
 			    (setq-local
 			     completion-at-point-functions 'cape-dabbrev
 			     corfu-auto t
-			     corfu-auto-delay 0.2)
-			    (set-fill-column 80)
+			     corfu-auto-delay 0.2
+			     fill-column 70)
 			    (auto-fill-mode 1)
 			    (flyspell-mode 1)))
