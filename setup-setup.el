@@ -22,6 +22,11 @@
 ;; Macros:
 
 (defmacro -> (&rest body)
+  "Turn BODY into a lambda function."
+  `(lambda ()
+     ,@body))
+
+(defmacro --> (&rest body)
   "Turn BODY into an interactively-callable lambda function."
   `(lambda ()
      (interactive)
