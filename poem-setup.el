@@ -3,7 +3,8 @@
 ;;;
 
 (use-package olivetti
-  :bind ("C-z O" . olivetti-mode))
+  :bind ("C-z O" . olivetti-mode)
+  :custom (olivetti-minimum-body-width 110))
 
 (add-to-list 'auto-mode-alist
              '("\\.poem\\'" .
