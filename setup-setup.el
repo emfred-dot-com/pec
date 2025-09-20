@@ -32,15 +32,21 @@
      (interactive)
      ,@body))
 
+(defmacro keybind--keybind (bind-func key func)
+  "Helper macro used internally by `keybind' and `keybind-local'."
+  (if (listp func)
+      `(,bind-func (kbd ,key) ,func)
+    `(,bind-func (kbd ,key) (quote ,func))))
+
 (defmacro keybind (key func)
-  "Bind KEY, given as a string (e.g. \"C-x s\") to the function FUNC (given
-  unquoted)."
-  `(global-set-key (kbd ,key) (quote ,func)))
+  "Bind KEY, given as a string (e.g. \"C-x s\") to the function
+FUNC (given as an unquoted symbol, or as a raw definition)."
+  `(keybind--keybind global-set-key ,key ,func))
 
 (defmacro keybind-local (key func)
-  "Bind KEY locally, given as a string (e.g. \"C-x s\") to the function
-  FUNC (given unquoted)."
-  `(local-set-key (kbd ,key) (quote ,func)))
+  "Bind KEY locally, given as a string (e.g. \"C-x s\") to the
+function FUNC (given as an unquoted symbol, or as a raw definition)."
+  `(keybind--keybind local-set-key ,key ,func))
 
 (defmacro keybinds (&rest keys-functions)
   "Apply the `keybind' macro pairwise through the argument list."
