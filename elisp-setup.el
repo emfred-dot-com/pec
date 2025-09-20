@@ -3,7 +3,6 @@
 ;;;
 
 (add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (setq-local completion-at-point-functions
-			'(elisp-completion-at-point cape-dabbrev cape-keyword))))
-
+	  (=> (setq-local
+	       completion-at-point-functions
+	       '(elisp-completion-at-point cape-dabbrev cape-keyword))))

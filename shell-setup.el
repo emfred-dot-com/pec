@@ -7,8 +7,7 @@
 (use-package eshell
   :config
   (add-hook 'eshell-mode-hook
-	    (lambda ()
-	      (setq-local corfu-auto-prefix 4)))
+	    (=> (setq-local corfu-auto-prefix 4)))
 
   (defun eshell-other-window ()
     "Open `eshell' in a new window; opens in the caller's working directory"

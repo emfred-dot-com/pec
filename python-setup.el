@@ -4,5 +4,4 @@
 
 (when-mac
  (add-hook 'python-mode-hook
-	   (lambda ()
-	     (setq python-shell-exec-path '("/usr/local/bin")))))
+	   (=> (setq python-shell-exec-path '("/usr/local/bin")))))

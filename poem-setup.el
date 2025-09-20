@@ -8,8 +8,8 @@
 
 (add-to-list 'auto-mode-alist
              '("\\.poem\\'" .
-	       (lambda ()
-                 (text-mode)
-		 (olivetti-mode 1)
-		 (text-scale-adjust 1)
-		 (setq-local completion-at-point-functions nil))))
+	       (=> (text-mode)
+		   (olivetti-mode 1)
+		   (text-scale-adjust 1)
+		   (setq-local
+		    completion-at-point-functions nil))))

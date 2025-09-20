@@ -26,8 +26,7 @@
 	   message-send-mail-function #'smtpmail-send-it)
 
      (add-hook 'message-mode-hook
-	       (lambda ()
-		 (setq smtpmail-smtp-service 587))))))
+	       (=> (setq smtpmail-smtp-service 587))))))
 
 (when-linux
  (progn

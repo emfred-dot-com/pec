@@ -3,5 +3,4 @@
 ;;;
 
 (add-hook 'mhtml-mode-hook
-	  (lambda ()
-	    (sgml-electric-tag-pair-mode 1)))
+	  (=> (sgml-electric-tag-pair-mode 1)))

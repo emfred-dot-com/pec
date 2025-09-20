@@ -8,6 +8,7 @@
   (pdf-tools-install))
 
 (add-hook 'pdf-view-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "j") 'pdf-view-next-line-or-next-page)
-	    (local-set-key (kbd "k") 'pdf-view-previous-line-or-previous-page)))
+	  (=> (local-set-key (kbd "j")
+			     'pdf-view-next-line-or-next-page)
+	      (local-set-key (kbd "k")
+			     'pdf-view-previous-line-or-previous-page)))

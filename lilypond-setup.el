@@ -16,6 +16,5 @@
 		    "/opt/homebrew/share/emacs/site-lisp/lilypond"))
 
       (add-hook 'LilyPond-mode-hook
-		(lambda ()
-		  (flycheck-mode 1)
-		  (display-line-numbers-mode 1)))))
+		(=> (flycheck-mode 1)
+		    (display-line-numbers-mode 1)))))

@@ -8,5 +8,4 @@
 (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
 
 (add-hook 'lsp-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "M-.") 'lsp-find-definition)))
+	  (=> (local-set-key (kbd "M-.") 'lsp-find-definition)))

@@ -3,6 +3,5 @@
 ;;;
 
 (add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (c-set-style "stroustrup")
-	    (filladapt-mode 1)))
+	  (=> (c-set-style "stroustrup")
+	      (filladapt-mode 1)))

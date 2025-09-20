@@ -3,9 +3,7 @@
 ;;;
 
 (add-hook 'js-mode-hook
-	  (lambda ()
-	    (setq js-indent-level 2)))
+	  (=> (setq js-indent-level 2)))
 
 (add-hook 'typescript-ts-mode-hook
-	  (lambda ()
-	    (setq typescript-ts-mode-indent-offset 4)))
+	  (=> (setq typescript-ts-mode-indent-offset 4)))

@@ -2,14 +2,16 @@
 ;;; dired-setup.el -- configurations for Dired
 ;;;
 
-(defun dired-sysopen-file-at-point ()
-  (interactive)
-  (async-shell-command (concat "open " (dired-file-name-at-point)) "open (from dired)"))
+(use-package dired
+  :ensure nil
+  :config
+  (defun dired-sysopen-file-at-point ()
+    (interactive)
+    (async-shell-command (concat "open " (dired-file-name-at-point)) "open (from dired)"))
 
-(add-hook 'dired-mode-hook
-	  (lambda ()
-	    (keymap-set dired-mode-map (kbd ";")
-			'dired-sysopen-file-at-point)))
+  (add-hook 'dired-mode-hook
+	    (=> (keymap-set dired-mode-map (kbd ";")
+			    'dired-sysopen-file-at-point))))
 
 (setq dired-listing-switches "-alh")
 
@@ -27,5 +29,6 @@ Version: 2025-01-05"
                  ("name" . "-Al ")
                  ("dir" . "-Al --group-directories-first")))
         xsortBy)
-    (setq xsortBy (completing-read "Sort by (default date):" xmenu nil t nil nil (caar xmenu)))
+    (setq xsortBy (completing-read "Sort by (default date):"
+				   xmenu nil t nil nil (caar xmenu)))
     (dired-sort-other (cdr (assoc xsortBy xmenu)))))
