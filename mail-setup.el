@@ -2,6 +2,30 @@
 ;;; mail-setup.el -- Setup for reading and sending mail
 ;;;
 
+(when-mac
+ (progn
+   (use-package gnus
+     :defer t
+     :config
+     (setq
+      gnus-select-method '(nnimap "imap.gmail.com")
+      gnus-extra-headers '(To Cc Keywords Gcc Newsgroups X-GM-LABELS)
+      gnus-always-read-dribble-file t
+      gnus-summary-line-format "%U%R%z%I%(%[ %-4,30f (%L) %]%) %s\n"
+      gnus-sum-thread-tree-indent "    "
+      gnus-sum-opening-bracket-adopted "{"
+      gnus-sum-closing-bracket-adopted "}")
+     :bind (("C-z m" . gnus)))
+
+   (use-package smtpmail
+     :defer t
+     :config
+     (setq
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      smtpmail-stream-type 'starttls
+      smtpmail-auth-credentials "~/.authinfo"))))
+
 (when-linux
  (progn
    ;; for reading mail
