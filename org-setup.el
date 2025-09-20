@@ -12,4 +12,4 @@
 	      (setq captain-predicate
 		    (=> (not (org-in-src-block-p)))
 		    org-image-max-width 50)
-	      (local-set-key (kbd "C-c h") 'consult-org-heading)))
+	      (keybind-local "C-c h" consult-org-heading)))

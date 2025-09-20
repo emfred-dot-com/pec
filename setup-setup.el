@@ -37,6 +37,11 @@
   unquoted)."
   `(global-set-key (kbd ,key) (quote ,func)))
 
+(defmacro keybind-local (key func)
+  "Bind KEY locally, given as a string (e.g. \"C-x s\") to the function
+  FUNC (given unquoted)."
+  `(local-set-key (kbd ,key) (quote ,func)))
+
 (defmacro keybinds (&rest keys-functions)
   "Apply the `keybind' macro pairwise through the argument list."
   (let ((key (car keys-functions))
@@ -46,6 +51,16 @@
 	`(progn
 	   (keybind ,key ,func)
 	   (keybinds ,@rest)))))
+
+(defmacro keybinds-local (&rest keys-functions)
+  "Apply the `keybind-local' macro pairwise through the argument list."
+  (let ((key (car keys-functions))
+	(func (cadr keys-functions))
+	(rest (cddr keys-functions)))
+    (when func
+	`(progn
+	   (keybind-local ,key ,func)
+	   (keybinds-local ,@rest)))))
 
 ;; Leader key:
 
