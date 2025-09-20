@@ -2,33 +2,16 @@
 ;;; init.el -- Emacs startup file
 ;;;
 
-;; Platform
-(defcustom myOs "linux"
-  "Variable used to guard settings that only work on Linux or MacOs"
-  :type 'string)
-
-(if (eq system-type 'darwin)
-    (setq myOs "mac"))
-
-(defmacro when-mac (then)
-  `(when (string-equal myOs "mac")
-     ,then))
-
-(defmacro when-linux (then)
-  `(when (string-equal myOs "linux")
-     ,then))
-
 (defun load-these (files)
   (mapcar
    (lambda (file)
      (load-file (locate-user-emacs-file file)))
    files))
 
-;; Free up the leader so that files loaded below can define keybinds
-;; off of it
-(global-unset-key (kbd "C-z"))
+(load-these '("setup-setup.el"
 
-(load-these '("package-setup.el"
+	      ;; * Packages
+	      "package-setup.el"
 	      ;; ^ (load this first so that the remaining *-setup
 	      ;; files can declare their dependencies with
 	      ;; `use-package')

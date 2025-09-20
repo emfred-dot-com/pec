@@ -2,22 +2,7 @@
 ;;; keys-setup.el -- Keybindings
 ;;;
 
-(defmacro keybind (key func)
-  "Bind @key, given as a string (e.g. \"C-x s\") to the function @func (given
-  unquoted)"
-  `(global-set-key (kbd ,key) (quote ,func)))
-
-(defmacro keybinds (&rest keys-functions)
-  "Apply the `keybind' macro pairwise through the argument list"
-  (let ((key (car keys-functions))
-	(func (cadr keys-functions))
-	(rest (cddr keys-functions)))
-    (when func
-	`(progn
-	   (keybind ,key ,func)
-	   (keybinds ,@rest)))))
-
-;; Tweaks to default bindings
+;; Tweaks to default bindings:
 
 (keybinds
  ; Better buffer menu
@@ -38,7 +23,7 @@
  ; (Remap tab switch)
  "C-S-<tab>" tab-next)
 
-;; Custom bindings
+;; Custom bindings:
 
 (keybinds
  "C-z 1" consult-todo
