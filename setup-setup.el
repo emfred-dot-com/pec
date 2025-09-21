@@ -41,32 +41,34 @@
 (defmacro keybind (key func)
   "Bind KEY, given as a string (e.g. \"C-x s\") to the function
 FUNC (given as an unquoted symbol, or as a raw definition)."
-  `(keybind--keybind global-set-key ,key ,func))
+  `(keybind--keybind
+    global-set-key ,key ,func))
 
 (defmacro keybind-local (key func)
   "Bind KEY locally, given as a string (e.g. \"C-x s\") to the
 function FUNC (given as an unquoted symbol, or as a raw definition)."
-  `(keybind--keybind local-set-key ,key ,func))
+  `(keybind--keybind
+    local-set-key ,key ,func))
+
+(defmacro keybinds--keybinds (kb kbs &rest keys-functions)
+  "Helper macro used internally by `keybinds' and `keybinds-local'."
+    (let ((key (car keys-functions))
+	(func (cadr keys-functions))
+	(rest (cddr keys-functions)))
+    (when func
+	`(progn
+	   (,kb ,key ,func)
+	   (,kbs ,@rest)))))
 
 (defmacro keybinds (&rest keys-functions)
   "Apply the `keybind' macro pairwise through the argument list."
-  (let ((key (car keys-functions))
-	(func (cadr keys-functions))
-	(rest (cddr keys-functions)))
-    (when func
-	`(progn
-	   (keybind ,key ,func)
-	   (keybinds ,@rest)))))
+  `(keybinds--keybinds
+    keybind keybinds ,@keys-functions))
 
 (defmacro keybinds-local (&rest keys-functions)
   "Apply the `keybind-local' macro pairwise through the argument list."
-  (let ((key (car keys-functions))
-	(func (cadr keys-functions))
-	(rest (cddr keys-functions)))
-    (when func
-	`(progn
-	   (keybind-local ,key ,func)
-	   (keybinds-local ,@rest)))))
+  `(keybinds--keybinds
+    keybind-local keybinds-local ,@keys-functions))
 
 ;; Leader key:
 
