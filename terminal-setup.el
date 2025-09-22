@@ -79,12 +79,15 @@ candidate.
 If a prefix argument is passed, then the jump will happen in the current
 window, instead of popping to another window"
   (interactive "P")
-  (let* ((vterm-buffer-names (buffer-names-matching-regexp "\*vterm\*"))
-	 (buf-name (completing-read "Select vterm instance: " vterm-buffer-names)))
-    (if arg
-	(switch-to-buffer buf-name)
-      (pop-to-buffer buf-name
-		     #'display-buffer-use-least-recent-window))))
+  (let ((vterm-buffer-names (buffer-names-matching-regexp "\*vterm\*")))
+    (if (not vterm-buffer-names)
+	(message "No vterm instances to choose from.")
+      (let ((buf-name (completing-read
+		       "Select vterm instance: " vterm-buffer-names)))
+	(if arg
+	    (switch-to-buffer buf-name)
+	  (pop-to-buffer buf-name
+			 #'display-buffer-use-least-recent-window))))))
 
 (keybinds
  "C-z ," vterm-create
