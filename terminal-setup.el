@@ -77,7 +77,7 @@ match the format used by `vterm-create'), and jump to the selected
 candidate.
 
 If a prefix argument is passed, then the jump will happen in the current
- window, instead of popping to another window"
+window, instead of popping to another window"
   (interactive "P")
   (let* ((vterm-buffer-names (buffer-names-matching-regexp "\*vterm\*"))
 	 (buf-name (completing-read "Select vterm instance: " vterm-buffer-names)))
