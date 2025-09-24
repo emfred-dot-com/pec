@@ -49,29 +49,48 @@ returned string cleaned up, and with support for `project.el'."
      (string-match-p regexp buf-name))
    (mapcar #'buffer-name (buffer-list))))
 
-;; Now the main event: wrappers around `vterm' which enable:
-;; - creating new sessions with descriptive names (`vterm-create')
-;; - switching to existsing sessions by way of a completion menu
-;;   (`vterm-select')
+(defun vterm-session/go (dir &optional force-new)
+  "Go to a `vterm' session for the directory DIR. If a session already
+exists for DIR, jump to it; else, create a new vterm instance in DIR.
 
-(defun vterm-create (arg)
-  "Create or jump to a new `vterm' session. If one already exists for the
-current directory (that from which this command was executed), then
-jump to it, else create a new session and name the buffer after the
-current directory.
+If FORCE-NEW is `t', then a new session will be created unconditionally
+(even if one already exists for DIR)."
+  (let ((vterm-buf-name (concat "*vterm* " dir)))
+    (if (and (get-buffer vterm-buf-name) (not force-new))
+	(pop-to-buffer vterm-buf-name)
+      (let ((default-directory dir))
+	(vterm-other-window vterm-buf-name)))))
+
+;; Now the main event: wrappers around `vterm' which enable:
+;; - creating new sessions with descriptive names
+;;   (`vterm-session/create-*')
+;; - switching to existsing sessions by way of a completion menu
+;;   (`vterm-session/select')
+
+(defun vterm-session/create-in-current-directory (arg)
+  "Create or jump to a new `vterm' session in the current directory
+(that from which this command was executed). If one already exists there,
+then jump to it, else create a new session and name the buffer after
+the current directory.
 
 If a prefix argument is passed, then a new session will be created
 unconditionally (even if one already exists for the current directory)."
   (interactive "P")
-    (let* ((current-directory
-	    (cwd))
-	   (vterm-buf-name
-	    (concat "*vterm* " current-directory)))
-      (if (and (get-buffer vterm-buf-name) (not arg))
-	  (pop-to-buffer vterm-buf-name)
-	(vterm-other-window vterm-buf-name))))
+  (let ((current-directory (cwd)))
+    (vterm-session/go current-directory arg)))
 
-(defun vterm-select (arg)
+(defun vterm-session/create-in-chosen-directory (arg)
+  "Prompt for a directory in which to create a new, or jump to an existing,
+`vterm' session.
+
+If a prefix argument is passed, then a new session will be created
+unconditionally."
+  (interactive "P")
+  (let ((dir (read-directory-name "Open vterm in: ")))
+    (if dir
+        (vterm-session/go dir arg))))
+
+(defun vterm-session/select (arg)
   "Provide a completion menu of all active `vterm' sessions (whose names
 match the format used by `vterm-create'), and jump to the selected
 candidate.
@@ -81,14 +100,15 @@ window, instead of popping to another window"
   (interactive "P")
   (let ((vterm-buffer-names (buffer-names-matching-regexp "\*vterm\*")))
     (if (not vterm-buffer-names)
-	(message "No vterm instances to choose from.")
+	(message "No vterm sessions to choose from.")
       (let ((buf-name (completing-read
-		       "Select vterm instance: " vterm-buffer-names)))
+		       "Select vterm session: " vterm-buffer-names)))
 	(if arg
 	    (switch-to-buffer buf-name)
 	  (pop-to-buffer buf-name
 			 #'display-buffer-use-least-recent-window))))))
 
 (keybinds
- "C-z ," vterm-create
- "C-z C-," vterm-select)
+ "C-z ,"   vterm-session/create-in-current-directory
+ "C-z M-," vterm-session/create-in-chosen-directory
+ "C-z C-," vterm-session/select)
