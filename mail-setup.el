@@ -18,6 +18,8 @@
       gnus-widen-article-window t)
      :bind (("C-z m" . gnus)))
 
+   (setq user-mail-address personal/email-address)
+
    (use-package smtpmail
      :config
      (setq smtpmail-smtp-server "smtp.gmail.com"

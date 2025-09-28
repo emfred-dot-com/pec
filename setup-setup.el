@@ -73,3 +73,7 @@ function FUNC (given as an unquoted symbol, or as a raw definition)."
 ;; Leader key:
 
 (global-unset-key (kbd "C-z"))
+
+;; Personal info:
+
+(load-these '("personal.el"))
