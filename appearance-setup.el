@@ -10,7 +10,7 @@
 	ef-dream-palette-overrides
 	'((prose-done green-warmer)))
   (when-mac (setq ef-themes-to-toggle
-		  '(ef-day ef-autumn))))
+		  '(ef-day ef-symbiosis))))
 
 (require-theme 'ef-themes)
 
@@ -18,7 +18,7 @@
 
 (require-theme 'doric-themes)
 
-(when-mac (load-theme 'ef-autumn t))
+(when-mac (load-theme 'ef-symbiosis t))
 (when-linux (load-theme 'ef-winter t))
 
 ;; Ensure fullscreen at startup
