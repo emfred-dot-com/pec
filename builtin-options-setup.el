@@ -21,9 +21,9 @@
  kept-old-versions 2
  recentf-max-saved-items 500
  ring-bell-function 'ignore
+ scroll-preserve-screen-position t
  sentence-end-double-space t
  set-mark-command-repeat-pop t
- scroll-preserve-screen-position t
  tab-bar-show 1
  undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
  use-dialog-box nil
