@@ -4,6 +4,8 @@
 
 (when-mac
  (progn
+   (setq user-mail-address personal/email-address)
+
    (use-package gnus
      :defer t
      :config
@@ -21,8 +23,6 @@
       gnus-widen-article-window t
       message-kill-buffer-on-exit t)
      :bind (("C-z m" . gnus)))
-
-   (setq user-mail-address personal/email-address)
 
    (use-package smtpmail
      :config
