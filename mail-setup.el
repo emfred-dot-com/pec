@@ -17,7 +17,8 @@
       gnus-sum-closing-bracket-adopted "}"
       gnus-thread-sort-functions '(gnus-thread-sort-by-number
 				   gnus-thread-sort-by-most-recent-date)
-      gnus-widen-article-window t)
+      gnus-widen-article-window t
+      message-kill-buffer-on-exit t)
      :bind (("C-z m" . gnus)))
 
    (setq user-mail-address personal/email-address)
