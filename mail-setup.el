@@ -32,7 +32,17 @@
 	   message-send-mail-function #'smtpmail-send-it)
 
      (add-hook 'message-mode-hook
-	       (=> (setq smtpmail-smtp-service 587))))))
+	       (=> (setq smtpmail-smtp-service 587))))
+
+   (use-package ebdb
+     :after gnus
+     :config
+     (setq ebdb-complete-mail 'tab
+	   ebdb-completion-display-record t
+	   ebdb-mua-auto-update-p 'query
+	   ebdb-mua-pop-up nil)
+     (ebdb-insinuate-gnus)
+     (ebdb-complete-enable))))
 
 (when-linux
  (progn
