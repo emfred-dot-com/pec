@@ -75,6 +75,9 @@
 	      ;; * Documents
 	      "pdf-setup.el"
 
+	      ;; * Encryption / Decryption
+	      "crypto-setup.el"
+
 	      ;; * Diffs
 	      "diff-setup.el"
 
