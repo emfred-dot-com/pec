@@ -9,6 +9,7 @@
      :config
      (setq
       gnus-select-method '(nnimap "imap.gmail.com")
+      gnus-search-use-parsed-queries t
       gnus-extra-headers '(To Cc Keywords Gcc Newsgroups X-GM-LABELS)
       gnus-always-read-dribble-file t
       gnus-summary-line-format "%U%R%z%I%(%[ %-4,30f (%L) %]%) %s\n"
