@@ -39,7 +39,7 @@
      :config
      (setq ebdb-complete-mail 'tab
 	   ebdb-completion-display-record t
-	   ebdb-mua-auto-update-p 'query
+	   ebdb-mua-auto-update-p nil
 	   ebdb-mua-pop-up nil)
      (ebdb-insinuate-gnus)
      (ebdb-complete-enable))))
