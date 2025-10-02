@@ -15,6 +15,8 @@
       gnus-sum-thread-tree-indent "    "
       gnus-sum-opening-bracket-adopted "{"
       gnus-sum-closing-bracket-adopted "}"
+      gnus-thread-sort-functions '(gnus-thread-sort-by-number
+				   gnus-thread-sort-by-most-recent-date)
       gnus-widen-article-window t)
      :bind (("C-z m" . gnus)))
 
