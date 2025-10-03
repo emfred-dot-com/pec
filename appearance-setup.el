@@ -39,6 +39,12 @@
 (when-mac (set-face-attribute 'default nil :family "Aporetic Sans Mono"))
 (when-linux (set-face-attribute 'default nil :family "Source Code Pro"))
 
+;; Spacious padding
+(use-package spacious-padding
+  :init (setq spacious-padding-subtle-mode-line nil)
+  :hook ((after-init . spacious-padding-mode)
+	 (server-after-make-frame . spacious-padding-mode)))
+
 ;; Truncate long lines (wrapping causes too much visual interference)
 (set-default 'truncate-lines t)
 

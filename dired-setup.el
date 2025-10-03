@@ -16,6 +16,11 @@
 	    (=> (keymap-set dired-mode-map (kbd ";")
 			    'dired-sysopen-file-at-point))))
 
+(use-package dired-hide-dotfiles
+  :hook (dired-after-readin . dired-hide-dotfiles--hide)
+  :bind (:map dired-mode-map
+	      ("," . dired-hide-dotfiles-mode)))
+
 (setq dired-listing-switches "-alh")
 
 (defun xah-dired-sort ()

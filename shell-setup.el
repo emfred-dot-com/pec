@@ -21,6 +21,9 @@
 
   (keybind "C-z ." eshell-other-window))
 
+(use-package eat
+  :hook (eshell-mode . eat-eshell-mode))
+
 ;; Shell commands -- interactive
 
 (use-package shell-command+

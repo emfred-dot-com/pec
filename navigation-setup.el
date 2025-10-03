@@ -8,9 +8,23 @@
    "M-[" backward-sexp
    "M-]" forward-sexp))
 
+(use-package beginend
+  :demand t
+  :config
+  (beginend-global-mode 1))
+
 (use-package ffap
   :config
   (keybind "C-z [" find-file-at-point))
+
+(use-package embark
+  :bind (("C-." . embark-act)))
+
+(use-package embark-consult
+  :after (embark consult))
+
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
 
 ;; Scrolling
 

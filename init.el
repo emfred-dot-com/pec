@@ -12,9 +12,8 @@
 
 	      ;; * Packages
 	      "package-setup.el"
-	      ;; ^ (load this first so that the remaining *-setup
-	      ;; files can declare their dependencies with
-	      ;; `use-package')
+	      ;; ^ load this early so that later files
+	      ;;   are set up to declare dependencies.
 
 	      ;; * Custom functions
 	      "functions-setup.el"
@@ -81,6 +80,9 @@
 	      "org-setup.el"
 	      "lilypond-setup.el"
 
+	      ;; * * plaintext data
+	      "csv-setup.el"
+
 	      ;; * * programming
 	      "programming-setup.el"
 	      "documentation-setup.el"
@@ -110,8 +112,17 @@
 	      ;; * Version control
 	      "magit-setup.el"
 
+	      ;; * Snippets
+	      "snippets-setup.el"
+
+	      ;; * Vertico
+	      "vertico-setup.el"
+
 	      ;; * Consult
-	      "consult-setup.el"))
+	      "consult-setup.el"
+
+	      ;; * Activities
+	      "activities-setup.el"))
 
 ;; M-x customize
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))

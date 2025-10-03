@@ -8,6 +8,11 @@
 (use-package captain
   :bind ("C-c u" . captain-capitalize-word))
 
+(use-package filladapt
+  :ensure t
+  :config
+  (setq-default filladapt-mode t))
+
 (add-hook 'text-mode-hook
 	  (=> (setq-local
 	       captain-predicate (=> t)

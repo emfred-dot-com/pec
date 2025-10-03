@@ -4,8 +4,7 @@
 
 (use-package pdf-tools
   :ensure t
-  :config
-  (pdf-tools-install))
+  :hook (doc-view-mode . pdf-tools-install))
 
 (add-hook 'pdf-view-mode-hook
 	  (=> (keybinds-local
