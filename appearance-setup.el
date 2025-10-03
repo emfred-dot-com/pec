@@ -9,6 +9,11 @@
         '((prompt yellow-warmer))
 	ef-dream-palette-overrides
 	'((prose-done green-warmer)))
+
+  (keybinds
+   "C-z t" ef-themes-select
+   "C-z C-t" ef-themes-toggle)
+
   (when-mac (setq ef-themes-to-toggle
 		  '(ef-day ef-symbiosis))))
 

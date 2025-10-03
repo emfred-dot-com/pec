@@ -74,6 +74,15 @@ function FUNC (given as an unquoted symbol, or as a raw definition)."
 
 (global-unset-key (kbd "C-z"))
 
+;; Of course we need a binding to edit the config!:
+
+(defun edit-config ()
+  "Open the main config file."
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+(keybind "C-z =" edit-config)
+
 ;; Personal info:
 
 (load-these '("personal.el"))

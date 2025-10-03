@@ -2,6 +2,10 @@
 ;;; programming-setup.el -- Customizations for coding
 ;;;
 
+(use-package emacs
+  :config
+  (keybind "C-z /" compile))
+
 (use-package cape
   :bind ("M-/" . cape-dabbrev))
 

@@ -8,6 +8,8 @@
              '("melpa-stable" .
 	       "https://stable.melpa.org/packages/"))
 
+(keybind "C-z p" package-list-packages)
+
 (setq package-install-upgrade-builtin t)
 
 (package-initialize)
@@ -49,12 +51,6 @@
   (beginend-global-mode 1))
 
 (use-package bufferfile)
-
-(use-package consult
-  :demand t
-  :config
-  (setq register-preview-delay 0.8
-        register-preview-function #'consult-register-format))
 
 (use-package csv-mode
   :defer t)
@@ -137,8 +133,6 @@
   :init (setq spacious-padding-subtle-mode-line nil)
   :hook ((after-init . spacious-padding-mode)
 	 (server-after-make-frame . spacious-padding-mode)))
-
-(use-package smartparens)
 
 (use-package substitute
   :bind (("M-# b" . substitute-target-in-buffer)

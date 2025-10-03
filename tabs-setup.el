@@ -1,5 +1,5 @@
 ;;;  -*- lexical-binding: t; -*-
-;;; tabs-setup.el -- Configurations for tab-bar
+;;; tabs-setup.el -- Tab management
 ;;;
 
 ;; Code courtesy of Prot!
@@ -16,6 +16,9 @@
   (setq tab-bar-show 1)
   (setq tab-bar-tab-hints nil)
   (setq tab-bar-tab-name-function 'tab-bar-tab-name-all)
+
+  ;; (Remap tab switch)
+  (keybind "C-S-<tab>" tab-next)
 
   (tab-bar-mode 1)
   (tab-bar-history-mode -1)

@@ -19,19 +19,40 @@
 	      ;; * Custom functions
 	      "functions-setup.el"
 
-	      ;; * Keybinds
-	      "keys-setup.el"
+	      ;; * Basics
+	      "basics-setup.el"
+
+	      ;; * Navigation
+	      "navigation-setup.el"
+
+	      ;; * Editing
+	      "editing-setup.el"
+
+	      ;; * Copying and Pasting
+	      ;;  (Killing and Yanking)
+	      "copy-paste-setup.el"
 
 	      ;; * Appearance
 	      "appearance-setup.el"
 	      "mode-line-setup.el"
 
+	      ;; * Visuals
+	      "visuals-setup.el"
+
 	      ;; * Builtins
 	      "builtin-modes-setup.el"
 	      "builtin-options-setup.el"
 	      "path-setup.el"
-	      "tabs-setup.el"
 	      "dired-setup.el"
+
+	      ;; * Buffers
+	      "buffers-setup.el"
+
+	      ;; * Windows
+	      "windows-setup.el"
+
+	      ;; * Tabs
+	      "tabs-setup.el"
 
 	      ;; * Completion
 	      "completion-setup.el"
@@ -51,6 +72,7 @@
 	      ;; * Languages
 	      ;; * * natural
 	      "plaintext-setup.el"
+	      "writing-setup.el"
 	      "notes-setup.el"
 	      "poem-setup.el"
 
@@ -61,6 +83,7 @@
 
 	      ;; * * programming
 	      "programming-setup.el"
+	      "documentation-setup.el"
 	      "c-family-setup.el"
 	      "d-setup.el"
 	      "elisp-setup.el"
@@ -72,6 +95,9 @@
 	      "ocaml-setup.el"
 	      "python-setup.el"
 
+	      ;; * Math
+	      "math-setup.el"
+
 	      ;; * Documents
 	      "pdf-setup.el"
 
@@ -82,7 +108,10 @@
 	      "diff-setup.el"
 
 	      ;; * Version control
-	      "magit-setup.el"))
+	      "magit-setup.el"
+
+	      ;; * Consult
+	      "consult-setup.el"))
 
 ;; M-x customize
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
