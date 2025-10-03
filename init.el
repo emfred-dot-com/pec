@@ -15,9 +15,6 @@
 	      ;; ^ load this early so that later files
 	      ;;   are set up to declare dependencies.
 
-	      ;; * Custom functions
-	      "functions-setup.el"
-
 	      ;; * Basics
 	      "basics-setup.el"
 

@@ -35,6 +35,18 @@
 (when-mac (set-face-attribute 'default nil :height 200))
 (when-linux (set-face-attribute 'default nil :height 180))
 
+;; Easy command to change font size
+(defun set-font-height-in-pts (pts)
+  (set-face-attribute 'default nil :height (* 10 pts)))
+
+(defun change-font-size ()
+  (interactive)
+  (let* ((common-sizes
+	  (mapcar #'number-to-string '(8 10 12 14 16 18 20)))
+	 (size-in-pts
+	  (completing-read "Enter the new font size in pts: " common-sizes)))
+    (set-font-height-in-pts (string-to-number size-in-pts))))
+
 ;; Use the wonderful "Aporetic" font
 (when-mac (set-face-attribute 'default nil :family "Aporetic Sans Mono"))
 (when-linux (set-face-attribute 'default nil :family "Source Code Pro"))
