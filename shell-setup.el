@@ -22,7 +22,7 @@
   (keybind "C-z ." eshell-other-window))
 
 (use-package eat
-  :hook (eshell-mode . eat-eshell-mode))
+  :hook (eshell-load . eat-eshell-mode))
 
 ;; Shell commands -- interactive
 
