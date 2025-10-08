@@ -98,8 +98,6 @@ window, instead of popping to another window"
 	  (pop-to-buffer buf-name
 			 #'display-buffer-use-least-recent-window))))))
 
-(setq vterm-min-window-width 300)
-
 (keybinds
  "C-z ,"   vterm-session/create-in-current-directory
  "C-z M-," vterm-session/create-in-chosen-directory
