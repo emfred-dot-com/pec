@@ -102,3 +102,53 @@ window, instead of popping to another window"
  "C-z ,"   vterm-session/create-in-current-directory
  "C-z M-," vterm-session/create-in-chosen-directory
  "C-z C-," vterm-session/select)
+
+(defcustom vterm-session/normal-line-length 80
+  "Number of columns considered to be a \"normal\" line length by the
+command `vterm-session/toggle-long-lines'.")
+
+(defcustom vterm-session/long-line-length 5000
+  "Number of columns considered to be a \"long\" line length by the
+command `vterm-session/toggle-long-lines'.")
+
+(defun vterm-session/toggle-long-lines ()
+  "Set the variable `vterm-min-window-width' to a large value if it's
+small, or a small value if it's large. The values used for \"small\" and
+\"large\" are determined by the variables `vterm-session/normal-line-length'
+and `vterm-session/long-line-length'.
+
+The rationale behind this command, and the aforementioned variables, is as
+follows:
+
+A known issue (URL `https://github.com/akermu/emacs-libvterm/issues/179') in
+`vterm' makes it such that text which gets wrapped when fallling outside of
+a frame boundary (due to resizing from the window manager) gets clipped out
+of existence when the window is resized back to a size which should
+re-include that text.
+
+It's possible to work around this problem by setting
+`vterm-min-window-width' to a number of columns that's large enough such
+that the lines never wrap. However, this messes with the output of commands
+like `ls', as with a large `vterm-min-window-width' the output will lie all
+on a single line of text (since it isn't wrapping).
+
+With all of this in mind, a good workaround workflow can be achieved by
+toggling this long line length on when we need it (i.e. are about to have
+long-lined text on screen which we may need to resize), and then back off
+when we no longer need it (so that the output of common commands can wrap
+normally)."
+  (interactive)
+  (message (format "%s" vterm-min-window-width))
+  (if (< vterm-min-window-width vterm-session/long-line-length)
+      (progn
+	(setq vterm-min-window-width vterm-session/long-line-length)
+	(message (format "Vterm: line length set to LONG (%s columns)."
+			 vterm-session/long-line-length)))
+    (progn
+      (setq vterm-min-window-width vterm-session/normal-line-length)
+      (message (format
+		"Vterm: line length set to NORMAL (%s columns)."
+		vterm-session/normal-line-length)))))
+
+(keybind "C-z <" vterm-session/toggle-long-lines)
+; a.k.a. "C-z S-,"
