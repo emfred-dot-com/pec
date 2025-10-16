@@ -26,8 +26,6 @@
 		(abbrev-mode 1)
 
 		(setq-local
-		 captain-predicate
-		 (=> (not (org-in-src-block-p)))
 		 org-image-max-width 50
 		 completion-at-point-functions
 		 '(pcomplete-completions-at-point cape-dabbrev)
