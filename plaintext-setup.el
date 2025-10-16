@@ -2,8 +2,6 @@
 ;;; plaintext-setup.el -- Customizations for writing plain text
 ;;;
 
-(setq sentence-end-double-space nil)
-
 ;; Capitalization
 (use-package captain
   :bind ("C-c u" . captain-capitalize-word))
