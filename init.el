@@ -69,7 +69,7 @@
 	      ;; * * natural
 	      "plaintext-setup.el"
 	      "writing-setup.el"
-	      "notes-setup.el"
+	      "zettelkasten-setup.el"
 	      "poem-setup.el"
 
 	      ;; * * markup
