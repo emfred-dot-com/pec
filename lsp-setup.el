@@ -10,4 +10,8 @@
         completion-category-overrides '((eglot (styles orderless))
                                         (eglot-capf (styles orderless)))))
 
+(add-hook 'eglot-managed-mode-hook
+          (lambda ()
+            (add-to-list 'eglot-ignored-server-capabilities
+                         :documentOnTypeFormattingProvider)))
 
