@@ -8,6 +8,7 @@
  bookmark-save-flag 1
  custom-file (locate-user-emacs-file "custom-vars.el")
  delete-old-versions t
+ dired-kill-when-opening-new-dired-buffer t
  display-time-day-and-date nil
  display-time-default-load-average nil
  enable-recursive-minibuffers t
