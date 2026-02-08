@@ -1,5 +1,5 @@
 ;;;  -*- lexical-binding: t; -*-
-;;; buffers-setup.el -- Window management
+;;; windows-setup.el -- Window management
 ;;;
 
 (use-package emacs
