@@ -15,6 +15,7 @@
  gc-cons-threshold 20000000
  global-auto-revert-non-file-buffers t
  grep-use-headings t
+ help-window-select t
  inhibit-startup-screen t
  initial-buffer-choice t
  initial-scratch-message ";; Scratch\n\n"
