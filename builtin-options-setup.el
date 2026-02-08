@@ -24,6 +24,7 @@
  kept-old-versions 2
  make-pointer-invisible t
  max-lisp-eval-depth 2000
+ mouse-drag-copy-region t
  recentf-max-saved-items 500
  ring-bell-function 'ignore
  scroll-preserve-screen-position t
