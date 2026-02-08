@@ -28,5 +28,6 @@
    "C-z SPC" consult-recent-file
    "C-z S-SPC" consult-recent-file-other-window
    "C-z b" consult-buffer
+   "C-z f" consult-find
    "C-z g" consult-ripgrep
    "C-z s" consult-line))
