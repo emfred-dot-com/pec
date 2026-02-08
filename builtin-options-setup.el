@@ -22,6 +22,7 @@
  initial-scratch-message ";; Scratch\n\n"
  kept-new-versions 6
  kept-old-versions 2
+ make-pointer-invisible t
  max-lisp-eval-depth 2000
  recentf-max-saved-items 500
  ring-bell-function 'ignore
