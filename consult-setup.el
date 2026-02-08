@@ -30,4 +30,5 @@
    "C-z b" consult-buffer
    "C-z f" consult-find
    "C-z g" consult-ripgrep
+   "C-z m" consult-mark
    "C-z s" consult-line))
