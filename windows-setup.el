@@ -5,7 +5,9 @@
 (use-package emacs
   :config
   ;; Easy window switch
-  (keybind "C-<tab>" other-window))
+  (keybinds "C-<tab>" other-window
+            "C-S-i" enlarge-window
+            "C-S-d" shrink-window))
 
 (use-package ace-window
   :config
