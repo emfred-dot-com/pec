@@ -3,8 +3,9 @@
 ;;;
 
 (setq
+ auto-save-file-name-transforms `((".*" ,metadata-dir t))
  backup-by-copying t
- backup-directory-alist '(("." . "~/.emacs.d/backups"))
+ backup-directory-alist `(("." . ,metadata-dir))
  bookmark-save-flag 1
  custom-file (locate-user-emacs-file "custom-vars.el")
  delete-old-versions t
