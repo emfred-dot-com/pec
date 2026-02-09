@@ -29,4 +29,5 @@
 
 (use-package ace-window
   :config
-  (keybind "C-z )" ace-swap-window))
+  (keybinds "C-z w" ace-window
+            "C-z C-w" ace-swap-window))
