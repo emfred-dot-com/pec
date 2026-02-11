@@ -22,7 +22,7 @@
 				   gnus-thread-sort-by-most-recent-date)
       gnus-widen-article-window t
       message-kill-buffer-on-exit t)
-     :bind (("C-z m" . gnus)))
+     :bind (("C-z M" . gnus)))
 
    (use-package smtpmail
      :config
