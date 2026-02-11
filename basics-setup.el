@@ -6,7 +6,7 @@
   :config
   (keybinds
    "C-x c" restart-emacs
-   "C-z f" toggle-frame-fullscreen))
+   "C-z F" toggle-frame-fullscreen))
 
 ;; Better yes-or-no prompt (e.g. upon "C-c C-c")
 (use-package ido-yes-or-no
