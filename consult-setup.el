@@ -6,7 +6,9 @@
   :demand t
   :config
   (setq register-preview-delay 0.8
-        register-preview-function #'consult-register-format)
+        register-preview-function #'consult-register-format
+        xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref)
 
   (defun consult-recent-file-other-window ()
     "Find a recent file in another window using `completing-read'."
@@ -28,5 +30,7 @@
    "C-z SPC" consult-recent-file
    "C-z S-SPC" consult-recent-file-other-window
    "C-z b" consult-buffer
+   "C-z f" consult-find
    "C-z g" consult-ripgrep
+   "C-z m" consult-mark
    "C-z s" consult-line))

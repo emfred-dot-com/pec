@@ -6,8 +6,7 @@
   :config
   (keybinds
    "C-z h" hl-line-mode
-   "C-z l" display-line-numbers-mode
-   "C-z w" whitespace-mode))
+   "C-z l" display-line-numbers-mode)
 
 (use-package pulsar
   :hook ((next-error . pulsar-highlight-line)

@@ -9,6 +9,7 @@
   (mapcar (lambda (mode) (diminish mode))
 	  (mapcar #'cdr beginend-modes))
   (diminish 'eldoc-mode)
+  (diminish 'tree-sitter-mode)
   (diminish 'which-key-mode)
   (diminish 'yas-minor-mode))
 

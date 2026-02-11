@@ -3,11 +3,13 @@
 ;;;
 
 (setq
+ auto-save-file-name-transforms `((".*" ,metadata-dir t))
  backup-by-copying t
- backup-directory-alist '(("." . "~/.emacs.d/backups"))
+ backup-directory-alist `(("." . ,metadata-dir))
  bookmark-save-flag 1
  custom-file (locate-user-emacs-file "custom-vars.el")
  delete-old-versions t
+ dired-kill-when-opening-new-dired-buffer t
  display-time-day-and-date nil
  display-time-default-load-average nil
  enable-recursive-minibuffers t
@@ -15,12 +17,15 @@
  gc-cons-threshold 20000000
  global-auto-revert-non-file-buffers t
  grep-use-headings t
+ help-window-select t
  inhibit-startup-screen t
  initial-buffer-choice t
  initial-scratch-message ";; Scratch\n\n"
  kept-new-versions 6
  kept-old-versions 2
+ make-pointer-invisible t
  max-lisp-eval-depth 2000
+ mouse-drag-copy-region t
  recentf-max-saved-items 500
  ring-bell-function 'ignore
  scroll-preserve-screen-position t
