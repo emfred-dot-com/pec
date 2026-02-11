@@ -23,7 +23,9 @@
 
 (defconst
   metadata-dir
-  (substitute-in-file-name "$XDG_CACHE_HOME/emacs"))
+  (if-let ((xdg-cache-home (getenv "XDG_CACHE_HOME")))
+      (substitute-in-file-name "$XDG_CACHE_HOME/emacs")
+    (concat user-emacs-directory "metadata")))
 
 ;; Macros:
 
