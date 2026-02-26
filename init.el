@@ -94,6 +94,9 @@
 	      "ocaml-setup.el"
 	      "python-setup.el"
 
+	      ;; * AI assistance
+	      "ai-setup.el"
+
 	      ;; * Math
 	      "math-setup.el"
 
