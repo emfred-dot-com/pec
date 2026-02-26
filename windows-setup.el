@@ -25,7 +25,9 @@
             "C-x 2" split-window-below-and-focus
             "C-x 3" split-window-right-and-focus
             "C-S-i" enlarge-window
-            "C-S-d" shrink-window))
+            "C-S-d" shrink-window
+	    "C-S-M-i" enlarge-window-horizontally
+            "C-S-M-d" shrink-window-horizontally))
 
 (use-package ace-window
   :config
