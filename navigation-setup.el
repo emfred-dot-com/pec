@@ -27,7 +27,11 @@
   :bind ("C-=" . er/expand-region))
 
 (use-package god-mode
-  :bind (("<escape>" . god-mode)))
+  :bind (("<escape>" . god-mode))
+  :config
+  (setq god-mode-enable-function-key-translation nil)
+  (add-to-list 'god-exempt-major-modes 'vterm-mode)
+  (add-to-list 'god-exempt-major-modes 'eat-semi-char-mode))
 
 ;; Scrolling
 
