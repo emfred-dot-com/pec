@@ -10,8 +10,7 @@
    "C-z w" whitespace-mode))
 
 (use-package pulsar
-  :hook ((next-error . pulsar-highlight-line)
-	 (isearch-mode-end . pulsar-pulse-line)))
+  :hook (isearch-mode-end . pulsar-pulse-line-cyan))
 
 (use-package rainbow-mode
   :defer t
