@@ -31,6 +31,9 @@
 	      ;;  (Killing and Yanking)
 	      "copy-paste-setup.el"
 
+	      ;; * Registers
+	      "registers-setup.el"
+
 	      ;; * Appearance
 	      "appearance-setup.el"
 	      "mode-line-setup.el"
