@@ -80,3 +80,8 @@
 
 ;; Smooth scrolling
 (pixel-scroll-precision-mode 1)
+
+;; Remove annoying inverse-video effect in certain minibuffer text
+(when (facep 'read-multiple-choice-face)
+  (set-face-attribute 'read-multiple-choice-face nil
+                      :inverse-video nil))
