@@ -8,10 +8,14 @@
   (setq eglot-autoshutdown t
         eglot-code-action-indications '(margin)
         completion-category-overrides '((eglot (styles orderless))
-                                        (eglot-capf (styles orderless)))))
+                                        (eglot-capf (styles orderless))))
+  :bind
+  ("C-z \"" . eglot-code-action-quickfix))
 
 (add-hook 'eglot-managed-mode-hook
           (lambda ()
             (add-to-list 'eglot-ignored-server-capabilities
                          :documentOnTypeFormattingProvider)))
+
+(keybind "C-z :" consult-flymake)
 
