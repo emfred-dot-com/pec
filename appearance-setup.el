@@ -15,7 +15,7 @@
    "C-z C-t" ef-themes-toggle)
 
   (setq ef-themes-to-toggle
-	'(ef-reverie ef-dream)))
+	personal/ef-themes-to-toggle))
 
 (require-theme 'ef-themes)
 
