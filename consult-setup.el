@@ -32,6 +32,8 @@
    "C-z b" consult-buffer
    "C-z e" consult-flymake
    "C-z f" consult-find
+   "C-z C-f" (==> (consult-find 4))
    "C-z g" consult-ripgrep
+   "C-z C-g" (==> (consult-ripgrep 4))
    "C-z m" consult-mark
    "C-z s" consult-line))
