@@ -3,6 +3,7 @@
 ;;;
 
 (blink-cursor-mode 0)
+(setopt indent-tabs-mode nil)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 (size-indication-mode 0)
