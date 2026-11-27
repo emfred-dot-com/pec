@@ -31,3 +31,8 @@
   :config
   (add-to-list 'substitute-post-replace-hook
 	       'substitute-report-operation))
+
+;; Save undo history across Emacs sessions
+(use-package undo-fu-session
+  :config
+  (undo-fu-session-global-mode))

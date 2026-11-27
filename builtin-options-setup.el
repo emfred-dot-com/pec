@@ -32,7 +32,6 @@
  sentence-end-double-space t
  set-mark-command-repeat-pop t
  tab-bar-show 1
- undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
  use-dialog-box nil
  version-control t)
 
