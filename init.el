@@ -92,6 +92,7 @@
 
 	      ;; * * programming
 	      "programming-setup.el"
+	      "debug-setup.el"
 	      "documentation-setup.el"
 	      "c-family-setup.el"
 	      "d-setup.el"
