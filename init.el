@@ -36,7 +36,6 @@
 
 	      ;; * Appearance
 	      "appearance-setup.el"
-	      "mode-line-setup.el"
 
 	      ;; * Visuals
 	      "visuals-setup.el"
@@ -132,7 +131,11 @@
 	      "consult-setup.el"
 
 	      ;; * Activities
-	      "activities-setup.el"))
+	      "activities-setup.el"
+
+              ;; * Mode line customization
+              ;;   Must be last so modes are properly diminished.
+	      "mode-line-setup.el"))
 
 ;; M-x customize
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
