@@ -35,7 +35,8 @@
 		 completion-at-point-functions
 		 '(pcomplete-completions-at-point cape-dabbrev)
 		 electric-pair-inhibit-predicate
-		 (lambda (char) (eq char ?<)))
+		 (lambda (char) (eq char ?<))
+		 org-return-follows-link t)
 
 		(keybind-local "C-c h" consult-org-heading)))
 
