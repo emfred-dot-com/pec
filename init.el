@@ -36,7 +36,6 @@
 
 	      ;; * Appearance
 	      "appearance-setup.el"
-	      "mode-line-setup.el"
 
 	      ;; * Visuals
 	      "visuals-setup.el"
@@ -92,8 +91,8 @@
 
 	      ;; * * programming
 	      "programming-setup.el"
+	      "debug-setup.el"
 	      "documentation-setup.el"
-	      "tree-sitter-setup.el"
 	      "c-family-setup.el"
 	      "d-setup.el"
 	      "elisp-setup.el"
@@ -105,9 +104,7 @@
 	      "lsp-setup.el"
 	      "ocaml-setup.el"
 	      "python-setup.el"
-
-	      ;; * AI assistance
-	      "ai-setup.el"
+	      "syntax-highlighting-setup.el"
 
 	      ;; * Math
 	      "math-setup.el"
@@ -134,7 +131,11 @@
 	      "consult-setup.el"
 
 	      ;; * Activities
-	      "activities-setup.el"))
+	      "activities-setup.el"
+
+              ;; * Mode line customization
+              ;;   Must be last so modes are properly diminished.
+	      "mode-line-setup.el"))
 
 ;; M-x customize
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
