@@ -93,7 +93,6 @@
 	      ;; * * programming
 	      "programming-setup.el"
 	      "documentation-setup.el"
-	      "tree-sitter-setup.el"
 	      "c-family-setup.el"
 	      "d-setup.el"
 	      "elisp-setup.el"
@@ -105,6 +104,7 @@
 	      "lsp-setup.el"
 	      "ocaml-setup.el"
 	      "python-setup.el"
+	      "syntax-highlighting-setup.el"
 
 	      ;; * Math
 	      "math-setup.el"
